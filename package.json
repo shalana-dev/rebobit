@@ -1,0 +1,20 @@
+{
+  "name": "rebobit",
+  "version": "1.0.0",
+  "description": "Site retro que ajuda a redescobrir um jogo antigo a partir de fragmentos de memoria",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [],
+  "author": "Shalana",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.7.0",
+    "helmet": "^8.3.0"
+  }
+}
