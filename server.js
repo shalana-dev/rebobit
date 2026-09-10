@@ -1,3 +1,4 @@
+import "dotenv/config";
 import express from "express";
 import helmet from "helmet";
 import { APP } from "./src/config.js";
@@ -38,5 +39,10 @@ app.get("/api/health", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`${APP.name} rodando em http://localhost:${PORT}`);
+  app.listen(PORT, () => {
+    console.log(`${APP.name} rodando em http://localhost:${PORT}`);
+    console.log(
+      `Chave da RAWG carregada: ${process.env.RAWG_API_KEY ? "sim" : "NAO"}`,
+    );
+  });
 });
