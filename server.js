@@ -1,11 +1,12 @@
 // server.js
-// Ponto de entrada do REBOBIT. Liga o servidor que vai servir o site e a API.
+// ponto de entrada do REBOBIT, liga o servidor que vai servir o site e a API.
 
 import "dotenv/config";
 import express from "express";
 import helmet from "helmet";
 import { APP } from "./src/config.js";
 import { rawgGet } from "./src/services/rawg.js";
+import discoverRouter from "./src/routes/discover.js";
 
 const PORT = process.env.PORT || 3000;
 
@@ -25,6 +26,8 @@ app.get("/api/health", (req, res) => {
     time: new Date().toISOString(),
   });
 });
+
+app.use("/api/discover", discoverRouter);
 
 app.listen(PORT, () => {
   console.log(`${APP.name} rodando em http://localhost:${PORT}`);
